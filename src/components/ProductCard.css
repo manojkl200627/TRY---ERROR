@@ -1,0 +1,117 @@
+/* src/components/ProductCard.css */
+.product-card {
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  background: var(--card-bg);
+  border: 1px solid rgba(255,255,255,0.6);
+  position: relative;
+  /* Initial shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255,255,255,0.8);
+}
+
+.product-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.product-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.product-card:hover::after {
+  opacity: 1;
+}
+
+.media-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.product-image, .product-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all var(--transition-slow);
+}
+
+/* Image zoom effect on hover */
+.product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+.visible-media {
+  opacity: 1;
+  z-index: 2;
+}
+
+.hidden-media {
+  opacity: 0;
+  z-index: 1;
+}
+
+.product-info {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.5));
+}
+
+.product-category {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 99px;
+  width: max-content;
+}
+
+.product-name {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.product-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.add-to-cart-btn {
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  transform: translateY(10px);
+  opacity: 0.9;
+}
+
+.product-card:hover .add-to-cart-btn {
+  transform: translateY(0);
+  opacity: 1;
+}

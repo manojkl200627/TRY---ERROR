@@ -1,0 +1,93 @@
+/* src/pages/Home.css */
+.home-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 650px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15), inset 0 0 0 1px rgba(255,255,255,0.5);
+  transition: all var(--transition-normal);
+}
+
+.search-container:focus-within {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.25), 0 0 0 4px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.search-icon {
+  color: var(--text-secondary);
+  margin-right: 0.75rem;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.75rem 0;
+  font-size: 1.1rem;
+  font-family: inherit;
+  color: var(--text-primary);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.image-search-btn {
+  color: var(--accent-color);
+}
+.image-search-btn:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.animate-pulse {
+  animation: pulse 1s infinite;
+}
+
+.products-header {
+  margin-bottom: 2rem;
+}
+
+.products-header h2 {
+  font-size: 2.5rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.no-results {
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 4rem;
+  color: var(--text-secondary);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.1); }
+}
