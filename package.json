@@ -1,29 +1,18 @@
 {
-  "name": "e-commerce",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "neobrutal-shop",
+  "version": "1.0.0",
+  "description": "Full-stack Neo-Brutalist E-Commerce Web Application built with React, Express, Mongoose, and Node",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "lucide-react": "^1.8.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-router-dom": "^7.14.1"
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "install:all": "npm run install:server && npm run install:client",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "seed": "cd server && npm run seed",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"bgYellow.bold,bgCyan.bold\" \"npm run server\" \"npm run client\""
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "eslint": "^9.39.4",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.4.0",
-    "vite": "^8.0.4"
+    "concurrently": "^9.1.2"
   }
 }
