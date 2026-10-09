@@ -36,3 +36,27 @@ jobs:
           context: ./server
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/mern-backend:latest
+
+
+  deploy-to-k3s:
+    name: Deploy to K3s
+    needs: build-and-push
+    runs-on: self-hosted
+
+    steps:
+      - name: Update backend image
+        run: |
+          kubectl set image deployment/backendmainn \
+            ecommerce-backend=${{ secrets.DOCKERHUB_USERNAME }}/ecommerce-backend:latest \
+            -n emain
+
+      - name: Update frontend image
+        run: |
+          kubectl set image deployment/frontendmainn \
+            ecommerce-frontend=${{ secrets.DOCKERHUB_USERNAME }}/ecommerce-frontend:latest \
+            -n emain
+
+      - name: Verify rollout
+        run: |
+          kubectl rollout status deployment/backendmainn -n emain --timeout=180s
+          kubectl rollout status deployment/frontendmainn -n emain --timeout=180s
