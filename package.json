@@ -1,0 +1,18 @@
+{
+  "name": "neobrutal-shop",
+  "version": "1.0.0",
+  "description": "Full-stack Neo-Brutalist E-Commerce Web Application built with React, Express, Mongoose, and Node",
+  "scripts": {
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "install:all": "npm run install:server && npm run install:client",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "seed": "cd server && npm run seed",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"bgYellow.bold,bgCyan.bold\" \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

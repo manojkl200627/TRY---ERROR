@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background-color: #FDFBF7;
+    color: #121212;
+    overflow-x: hidden;
+  }
+}
+
+/* Background Grid Pattern */
+.neo-grid-bg {
+  background-color: #FDFBF7;
+  background-image: radial-gradient(#121212 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom Neo-Brutalist scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F0EA;
+  border-left: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFE600;
+  border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4365;
+}
+
+/* Neo-Brutalist Utilities */
+@layer components {
+  .neo-border {
+    @apply border-2 md:border-[3px] border-black;
+  }
+
+  .neo-card {
+    @apply border-2 md:border-[3px] border-black bg-white shadow-brutal transition-all duration-150;
+  }
+
+  .neo-card-interactive {
+    @apply neo-card hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal-lg active:translate-x-0.5 active:translate-y-0.5 active:shadow-brutal-sm;
+  }
+
+  .neo-btn {
+    @apply font-display font-extrabold uppercase tracking-wide border-2 md:border-[3px] border-black shadow-brutal transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal-lg active:translate-x-0.5 active:translate-y-0.5 active:shadow-none cursor-pointer select-none inline-flex items-center justify-center gap-2;
+  }
+
+  .neo-btn-sm {
+    @apply px-3 py-1.5 text-xs border-2 shadow-brutal-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brutal active:translate-x-0.5 active:translate-y-0.5 active:shadow-none;
+  }
+
+  .neo-input {
+    @apply border-2 md:border-[3px] border-black bg-white px-3.5 py-2.5 text-black shadow-brutal-sm focus:outline-none focus:shadow-brutal transition-all font-mono;
+  }
+
+  .neo-badge {
+    @apply border-2 border-black font-mono font-bold text-xs uppercase px-2.5 py-0.5 shadow-brutal-sm select-none inline-flex items-center gap-1;
+  }
+
+  .neo-sticker {
+    @apply inline-block border-2 border-black font-black uppercase text-xs px-2.5 py-1 shadow-brutal-sm transition-transform hover:scale-105;
+  }
+}
+
+/* Barcode simulation */
+.barcode-strip {
+  background: repeating-linear-gradient(
+    90deg,
+    #000,
+    #000 2px,
+    transparent 2px,
+    transparent 4px,
+    #000 4px,
+    #000 7px,
+    transparent 7px,
+    transparent 9px
+  );
+  height: 24px;
+  width: 100px;
+}

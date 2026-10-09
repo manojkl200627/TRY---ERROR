@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: backendmain
+  namespace: emain
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: aegon-targaryen
+
+      containers:
+        - name: ecommerce-backend
+          image: ecommerce-backend:latest
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 5000

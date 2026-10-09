@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: frontendmain
+  namespace: emain
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: frontend
+
+  template:
+    metadata:
+      labels:
+        app: frontend
+
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: aegon-targaryen
+
+      containers:
+        - name: ecommerce-frontend
+          image: ecommerce-frontend:latest
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 80
