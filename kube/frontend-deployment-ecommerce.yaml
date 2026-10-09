@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: frontendmain
+  name: frontendmainn
   namespace: emain
 
 spec:
@@ -24,8 +24,8 @@ spec:
 
       containers:
         - name: ecommerce-frontend
-          image: ecommerce-frontend:latest
-          imagePullPolicy: Never
+          image: manojkl2006/mern-frontend:latest
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 80
