@@ -39,7 +39,6 @@ export default function App() {
   const [trackingOrderId, setTrackingOrderId] = useState('');
   const [successOrder, setSuccessOrder] = useState(null);
 
-  // Fetch initial categories
   useEffect(() => {
     const loadCategories = async () => {
       try {
